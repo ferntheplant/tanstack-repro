@@ -1,7 +1,8 @@
 <script lang="ts">
 	import type { PageData } from './$types';
 	import { createQuery } from '@tanstack/svelte-query';
-	import { ProgressRadial, Paginator, type PaginationSettings } from '@skeletonlabs/skeleton';
+	import { ProgressRadial, type PaginationSettings } from '@skeletonlabs/skeleton';
+  import Pagination from './Pagination.svelte';
 
 	export let data: PageData;
 
@@ -63,5 +64,5 @@
 {#if $query.isRefetching}
 	<ProgressRadial value={undefined} />
 {:else}
-	<Paginator bind:settings={settings} />
+	<Pagination bind:settings={settings} />
 {/if}
